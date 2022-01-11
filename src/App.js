@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Grid } from '@material-ui/core';
+import React from 'react';
+import AddPost from './components/Navbar/AddPost';
+import Feed from './components/Navbar/Feed';
+import Leftbar from './components/Navbar/Leftbar';
+import Navbar from './components/Navbar/Navbar';
+import Rightbar from './components/Navbar/Rightbar'
+import useStyles from './styles'
 
 function App() {
+  const classes = useStyles()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Grid container>
+        <Grid item sm={2} xs={2}><Leftbar /></Grid>
+        <Grid item sm={7} xs={10}><Feed /></Grid>
+        <Grid item sm={3} className={classes.right}> <Rightbar /></Grid>
+      </Grid>
+      <AddPost />
+    </>
   );
 }
 
